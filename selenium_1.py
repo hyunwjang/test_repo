@@ -11,7 +11,7 @@ options.add_argument("window-size=1000,1000")
 options.add_argument("no-sandbox")
 
 
-browser = webdriver.Chrome(r"./110/chromedriver.exe",options=options)
+browser = webdriver.Chrome(r"./111/chromedriver.exe",options=options)
 # browser.get("https://www.naver.com/") # 사이트 접속
 browser.get("https://map.naver.com/v5/search/")
 
@@ -57,15 +57,19 @@ while True:
     
 
 titles =  browser.find_elements(By.CSS_SELECTOR,'li span[class^=place_bluelink]')
-
 classification =  browser.find_elements(By.CSS_SELECTOR,'li span[class^=KCMnt]')
 
+a = [x.text for x in titles]
+b = [x.text for x in classification]
 
-for title in titles:
-    print(title.text)
+import pandas as pd
+df = pd.DataFrame(zip(a,b))
+print(df)
+# for title in titles:
+#     print(title.text)
 
-for cl in classification:
-    print(cl.text)
+# for cl in classification:
+#     print(cl.text)
     
 
 time.sleep(4)
