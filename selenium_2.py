@@ -66,21 +66,12 @@ browser.window_handles[0]
 #기존 웹페이지 확인
 browser.switch_to.window(browser.window_handles[1])
 #지정 웹페이지로 이동 함수
+wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, 'a[class=_2-uvQuRWK5]')))
+# print(browser.window_handles)
 
-print(browser.window_handles)
-# a = [x.text for x in titles]
-
-# b = [x.text for x in classification]
-
-# import pandas as pd
-# df = pd.DataFrame(zip(a,b))
-# print(df)
-# # for title in titles:
-#     print(title.text)
-
-# for cl in classification:
-#     print(cl.text)
-    
+browser.find_elements(By.CSS_SELECTOR,'div[class="bd_2WNoM bd_3hLoi"] a')[0].click()
+browser.find_elements(By.CSS_SELECTOR,'li[role=presentation] a[role=option]')[0].click()
+browser.find_element(By.CSS_SELECTOR,'a[class=_2-uvQuRWK5').click()
 
 time.sleep(4)
-browser.close()
+browser.quit()
