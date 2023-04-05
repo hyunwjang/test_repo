@@ -13,7 +13,7 @@ from selenium.webdriver.common.keys import Keys
 chrome = webdriver.Chrome(r"./111/chromedriver.exe")
 wait = WebDriverWait(chrome, 10)
 
-
+#다나와 검색
 def find_present(css):
     return wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, css)))
 
@@ -49,12 +49,26 @@ def c_cpu(count):
 # print([x.text for x in finds_visible("div.search_cate_title")])
 category = [x.text for x in finds_visible("div.search_cate_title")]
 category = [v for v in category if v]
+#널값 제거
 
-print(category)
+def categort_totle():
+    for i in range(len(category)):
+        print(str(i+1) + ": " + category[i])
+
+while 1:
+    categort_totle()
+    print('--------------------------------')
+    cpu_count = input()
+    print('--------------------------------')
+    if int(cpu_count) < int(100):
+        c_cpu(int(cpu_count)-1)
+    else:
+        break
 
 
-for cat in range(len(category)):
-    c_cpu(cat)
+# for cat in range(len(category)):
+
+#     c_cpu(cat)
 
 find_visible("#searchDetailButton").click()
 time.sleep(1)
