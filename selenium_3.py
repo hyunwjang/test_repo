@@ -51,30 +51,43 @@ category = [x.text for x in finds_visible("div.search_cate_title")]
 category = [v for v in category if v]
 #널값 제거
 
-def categort_totle():
-    for i in range(len(category)):
-        print(str(i+1) + ": " + category[i])
+# def categort_totle():
+#     for i in range(len(category)):
+#         print(str(i+1) + ": " + category[i])
 
-while 1:
-    categort_totle()
-    print('--------------------------------')
-    cpu_count = input()
-    print('--------------------------------')
-    if int(cpu_count) < int(100):
-        c_cpu(int(cpu_count)-1)
-    else:
-        break
+# while 1:
+#     categort_totle()
+#     print('--------------------------------')
+#     cpu_count = input()
+#     print('--------------------------------')
+#     if int(cpu_count) < int(100):
+#         c_cpu(int(cpu_count)-1)
+#     else:
+#         break
 
+time.sleep(2)
+print([x.text for x in finds_visible('#wish_product_list div dl:nth-child(1) dd')])
 
-# for cat in range(len(category)):
-
-#     c_cpu(cat)
-
-find_visible("#searchDetailButton").click()
+find_visible('#wish_product_list div dl:nth-child(1) dd:nth-child(2) a').click()
 time.sleep(1)
-find_visible("#submitSearchDetail").click()
-time.sleep(5)
-chrome.quit()
+find_visible('#wish_product_list div dl:nth-child(1) dd:nth-child(3) a').click()
+time.sleep(1)
+find_visible('#wish_product_list div dl:nth-child(1) dd:nth-child(4) a').click()
+time.sleep(1)
+find_visible('#wish_product_list div dl:nth-child(1) dd:nth-child(5) a').click()
+time.sleep(1)
+find_visible('#wish_product_list div dl:nth-child(1) dd:nth-child(6) a').click()
+time.sleep(1)
+find_visible('#wish_product_list div dl:nth-child(1) dd:nth-child(7) a').click()
+# print([x.text for x in b])
+time.sleep(3)
+
+#검색
+# find_visible("#searchDetailButton").click()
+# time.sleep(1)
+# find_visible("#submitSearchDetail").click()
+# time.sleep(5)
+# chrome.quit()
 
 #chrome.switch_to.parent_frame()
 #부모 인자로 돌아감
